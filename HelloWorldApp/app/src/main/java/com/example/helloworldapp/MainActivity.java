@@ -1,9 +1,11 @@
 package com.example.helloworldapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -50,5 +52,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void topClick(View v) {
+        Toast.makeText(this, "topButton clicked", Toast.LENGTH_SHORT).show();
+        Log.i("info", "User clicked top button");
+    }
+
+    public void bottomClick(View v) {
+        Toast.makeText(this, "bottomButton clicked", Toast.LENGTH_LONG).show();
+        Log.i("info", "User clicked bottom button");
     }
 }
