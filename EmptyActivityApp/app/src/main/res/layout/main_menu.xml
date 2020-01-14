@@ -17,9 +17,15 @@
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100sp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:padding="15sp"
+        android:paddingLeft="15sp"
+        android:paddingTop="15sp"
+        android:paddingRight="15sp"
+        android:paddingBottom="15sp"
         android:text="Select a layout type to view an example. The onClick attribute of each button will call a method which executes setContentView to load the new layout ." />
 
     <LinearLayout
@@ -29,9 +35,10 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical"
             android:text="TextView"
             android:textSize="25sp"
             tools:text="Load ConstraintLayout" />
@@ -40,7 +47,8 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.1"
+            android:onClick="loadConstraintLayout"
             android:text="Load"
             android:textSize="20sp" />
     </LinearLayout>
@@ -52,9 +60,10 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical"
             android:text="TextView"
             android:textSize="25sp"
             tools:text="Load ConstraintLayout" />
@@ -63,7 +72,8 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.1"
+            android:onClick="loadTableLayout"
             android:text="Load"
             android:textSize="20sp" />
     </LinearLayout>
@@ -77,6 +87,9 @@
             android:id="@+id/ratingBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="75sp"
+            android:layout_marginRight="15sp"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>
