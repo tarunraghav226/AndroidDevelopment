@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_menu);
     }
 
-    void loadConstraintLayout(View view) {
+    public void loadConstraintLayout(View view) {
         setContentView(R.layout.activity_main);
     }
 
-    void loadTableLayout(View view) {
+    public void loadTableLayout(View view) {
         //setContentView(R.layout.my_table_layout);
     }
 }

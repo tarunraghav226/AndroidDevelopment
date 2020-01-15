@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
             android:gravity="center_vertical"
-            android:text="TextView"
+            android:text="Load ConstraintLayout"
             android:textSize="25sp"
             tools:text="Load ConstraintLayout" />
 
@@ -64,9 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
             android:gravity="center_vertical"
-            android:text="TextView"
+            android:text="Load TableLayout"
             android:textSize="25sp"
-            tools:text="Load ConstraintLayout" />
+            tools:text="Load TableLayout" />
 
         <Button
             android:id="@+id/button2"
