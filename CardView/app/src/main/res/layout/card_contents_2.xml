@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/grey"
     android:padding="16dp">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_margin="16dp"
         android:text="Another photo"
         android:textSize="24sp"
+        android:textColor="@color/white"
         tools:text="Another photo" />
 
     <ImageView
@@ -31,6 +33,7 @@
         android:layout_margin="16dp"
         android:text="This is the photo of tarun"
         android:textSize="16sp"
+        android:textColor="@color/white"
         tools:text="This is the photo of tarun" />
 
     <TextView
