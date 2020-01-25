@@ -1,9 +1,11 @@
 package com.example.lifecycledemo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Toast.makeText(this, "In onCreate", Toast.LENGTH_SHORT).show();
+        Log.i("info", "In onCreate");
     }
 
     @Override
@@ -50,5 +54,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Toast.makeText(this, "In onStart", Toast.LENGTH_SHORT).show();
+        Log.i("info", "In onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Toast.makeText(this, "In onResume", Toast.LENGTH_SHORT).show();
+        Log.i("info", "In onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Toast.makeText(this, "In onPause", Toast.LENGTH_SHORT).show();
+        Log.i("info", "In onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Toast.makeText(this, "In onStop", Toast.LENGTH_SHORT).show();
+        Log.i("info", "In onStop");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "In onDestroy", Toast.LENGTH_SHORT).show();
+        Log.i("info", "In onDestroy");
     }
 }
