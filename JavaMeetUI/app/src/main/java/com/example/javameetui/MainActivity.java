@@ -70,17 +70,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 size=txtValue.getTextScaleX();
                 txtValue.setTextScaleX(size-1);
                 break;
-        }
 
-        if(txtValue.getVisibility()==View.VISIBLE){
-            txtValue.setVisibility(View.INVISIBLE);
-            btnHide.setText("SHOW");
+            case R.id.btnHide:
+                if(txtValue.getVisibility()==View.VISIBLE){
+                    txtValue.setVisibility(View.INVISIBLE);
+                    btnHide.setText("SHOW");
+                }
+                else {
+                    txtValue.setVisibility(View.VISIBLE);
+                    btnHide.setText("HIDE");
+                }
+                break;
         }
-        else {
-            txtValue.setVisibility(View.VISIBLE);
-            btnHide.setText("HIDE");
-        }
-
-
     }
 }
