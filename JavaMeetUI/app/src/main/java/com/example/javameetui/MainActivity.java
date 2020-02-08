@@ -1,11 +1,11 @@
 package com.example.javameetui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private int value=0;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btnAdd=(Button) findViewById(R.id.btnAdd);
-        btnTake = (Button) findViewById(R.id.btntake);
+        btnTake = (Button) findViewById(R.id.btnTake);
         btnGrow = (Button) findViewById(R.id.btnGrow);
         btnShrink = (Button) findViewById(R.id.btnShrink);
         btnHide = (Button) findViewById(R.id.btnHide);
@@ -41,7 +41,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
+
+        float size;
+
+        switch(view.getId()){
+            case R.id.btnAdd:
+                value++;
+                txtValue.setText(""+value);
+                break;
+
+            case R.id.btnTake:
+                value--;
+                txtValue.setText(""+value);
+                break;
+
+            case R.id.btnReset:
+                value=0;
+                txtValue.setText(""+value);
+                break;
+
+            case R.id.btnGrow:
+                size=txtValue.getTextScaleX();
+                txtValue.setTextScaleX(size+1);
+                break;
+
+            case R.id.btnShrink:
+                size=txtValue.getTextScaleX();
+                txtValue.setTextScaleX(size-1);
+                break;
+        }
+
+        if(btnHide.getVisibility()==View.VISIBLE){
+            btnHide.setVisibility(View.INVISIBLE);
+            btnHide.setText("SHOW");
+        }
+        else if(btnHide.getVisibility()==View.INVISIBLE){
+            btnHide.setVisibility(View.VISIBLE);
+            btnHide.setText("HIDE");
+        }
 
 
     }
