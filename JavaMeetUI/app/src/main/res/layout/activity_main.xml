@@ -52,7 +52,7 @@
         tools:text="hide" />
 
     <Button
-        android:id="@+id/btntake"
+        android:id="@+id/btnTake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="take"
