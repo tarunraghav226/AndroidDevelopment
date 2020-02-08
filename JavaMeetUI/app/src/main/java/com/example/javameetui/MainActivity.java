@@ -72,12 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        if(btnHide.getVisibility()==View.VISIBLE){
-            btnHide.setVisibility(View.INVISIBLE);
+        if(txtValue.getVisibility()==View.VISIBLE){
+            txtValue.setVisibility(View.INVISIBLE);
             btnHide.setText("SHOW");
         }
-        else if(btnHide.getVisibility()==View.INVISIBLE){
-            btnHide.setVisibility(View.VISIBLE);
+        else {
+            txtValue.setVisibility(View.VISIBLE);
             btnHide.setText("HIDE");
         }
 
