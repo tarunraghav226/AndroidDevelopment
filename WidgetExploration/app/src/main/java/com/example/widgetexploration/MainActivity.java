@@ -59,5 +59,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        cbReSize.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (cbReSize.isChecked()) {
+                            imageView.setScaleX(2);
+                            imageView.setScaleY(2);
+                        } else {
+                            imageView.setScaleX(1);
+                            imageView.setScaleY(1);
+                        }
+                    }
+                }
+        );
     }
 }
