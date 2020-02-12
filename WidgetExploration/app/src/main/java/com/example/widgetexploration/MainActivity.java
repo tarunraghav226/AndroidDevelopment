@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextClock;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         final CheckBox cbReSize = (CheckBox) findViewById(R.id.checkBoxReSize);
         final ImageView imageView = (ImageView) findViewById(R.id.imageView);
         Switch switch1 = (Switch) findViewById(R.id.switch1);
-        TextView textView = (TextView) findViewById(R.id.textView);
+        final TextView textView = (TextView) findViewById(R.id.textView);
         textView.setVisibility(View.INVISIBLE);
 
         cbTransparency.setOnCheckedChangeListener(
@@ -70,6 +71,50 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             imageView.setScaleX(1);
                             imageView.setScaleY(1);
+                        }
+                    }
+                }
+        );
+
+        radioGroup.clearCheck();
+        radioGroup.setOnCheckedChangeListener(
+                new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        RadioButton rb = (RadioButton) findViewById(checkedId);
+                        switch (rb.getId()) {
+                            case R.id.radioButtonBeijing:
+                                tClock.setTimeZone("CST6CDT");
+                                break;
+                            case R.id.radioButtonLondon:
+                                tClock.setTimeZone("Europe/London");
+                                break;
+                            case R.id.radioButtonNewYork:
+                                tClock.setTimeZone("America/New_York");
+                                break;
+
+                        }
+                    }
+                }
+        );
+
+        button.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        textView.setText(editText.getText());
+                    }
+                }
+        );
+
+        switch1.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked) {
+                            textView.setVisibility(View.VISIBLE);
+                        } else {
+                            textView.setVisibility(View.INVISIBLE);
                         }
                     }
                 }
