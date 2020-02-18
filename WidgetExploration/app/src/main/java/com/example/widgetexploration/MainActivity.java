@@ -1,16 +1,8 @@
 package com.example.widgetexploration;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Switch;
-import android.widget.TextClock;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,10 +11,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.exploration_layout);
+        setContentView(R.layout.activity_main);
+
+        final Button dialogButton = (Button) findViewById(R.id.dialogButton);
+        dialogButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MyDialog myDialog = new MyDialog();
+                        myDialog.show(getSupportFragmentManager(), "1234");
+                    }
+
+                }
+        );
 
         //RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        final EditText editText = (EditText) findViewById(R.id.editText);
+        /*final EditText editText = (EditText) findViewById(R.id.editText);
         final Button button = (Button) findViewById(R.id.button);
         final TextClock tClock = (TextClock) findViewById(R.id.textClock);
         final CheckBox cbTransparency = (CheckBox) findViewById(R.id.checkBoxTransparency);
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-        );*/
+        );
 
         button.setOnClickListener(
                 new View.OnClickListener() {
@@ -116,6 +120,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-        );
+        );*/
     }
 }
