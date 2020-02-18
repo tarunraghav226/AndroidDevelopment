@@ -8,8 +8,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextClock;
 import android.widget.TextView;
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exploration_layout);
 
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        //RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         final EditText editText = (EditText) findViewById(R.id.editText);
         final Button button = (Button) findViewById(R.id.button);
         final TextClock tClock = (TextClock) findViewById(R.id.textClock);
@@ -76,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        radioGroup.clearCheck();
+        /*radioGroup.clearCheck();
         radioGroup.setOnCheckedChangeListener(
                 new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -96,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-        );
+        );*/
 
         button.setOnClickListener(
                 new View.OnClickListener() {
