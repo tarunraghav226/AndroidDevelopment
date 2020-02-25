@@ -39,5 +39,22 @@ public class DialogNewNote extends DialogFragment {
             }
         });
 
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Note newNote = new Note();
+
+                newNote.setTitle(editTitle.getText().toString());
+                newNote.setDescription(editDescription.getText().toString());
+                newNote.setIdea(checkBoxIdea.isChecked());
+                newNote.setTodo(checkBoxToDo.isChecked());
+                newNote.setImportant(checkBoxImportant.isChecked());
+
+                MainActivity callingActivity = (MainActivity) getActivity();
+                callingActivity.createNewNote(newNote);
+                dismiss();
+            }
+        });
+
     }
 }
