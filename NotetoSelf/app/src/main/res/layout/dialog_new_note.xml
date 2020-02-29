@@ -8,8 +8,8 @@
         android:id="@+id/editTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:hint="@string/title_hint"
         android:inputType="textPersonName"
@@ -21,63 +21,64 @@
         android:id="@+id/editDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="147dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/description_hint"
-        android:inputType="textShortMessage|textMultiLine"
-        android:text="@string/idea_text"
+        android:inputType="textMultiLine"
+        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTitle" />
 
     <CheckBox
-        android:id="@+id/checkBoxToDo"
+        android:id="@+id/checkBoxIdea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginBottom="150dp"
+        android:text="@string/idea_text"
+        app:layout_constraintBottom_toTopOf="@+id/btnOK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTitle" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/todo_text"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxIdea"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxIdea" />
 
     <CheckBox
         android:id="@+id/checkBoxImportant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/important_text"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxToDo"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxToDo" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTodo" />
 
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="59dp"
         android:text="@string/cancel_button"
-        app:layout_constraintBottom_toBottomOf="@+id/btnOK"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnOK" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="166dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="61dp"
         android:text="@string/ok_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkBoxToDo" />
-
-    <CheckBox
-        android:id="@+id/checkBoxIdea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="287dp"
-        android:text="@string/idea_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

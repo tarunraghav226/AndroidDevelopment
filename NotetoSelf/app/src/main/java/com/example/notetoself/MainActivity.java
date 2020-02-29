@@ -10,44 +10,57 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Temporary code
     Note mTempNote = new Note();
 
-    public void createNewNote(Note n) {
-        mTempNote = n;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //.setAction("Action", null).show();
+
+                DialogNewNote dialog = new DialogNewNote();
+                dialog.show(getSupportFragmentManager(), "");
             }
         });
 
+
+        // Temporary code
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // Create a new DialogShowNote called dialog
                 DialogShowNote dialog = new DialogShowNote();
-                dialog.sendNoteSelected(mTempNote);
-                dialog.show(getSupportFragmentManager(), "123");
 
+                // Send the note via the sendNoteSelected method
+                dialog.sendNoteSelected(mTempNote);
+
+                // Create the dialog
+                dialog.show(getSupportFragmentManager(), "123");
             }
         });
+
     }
+
+    public void createNewNote(Note n) {
+        // Temporary code
+        mTempNote = n;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
