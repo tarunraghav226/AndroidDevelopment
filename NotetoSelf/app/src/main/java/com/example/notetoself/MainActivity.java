@@ -7,14 +7,24 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     // Temporary code
     Note mTempNote = new Note();
 
+    private List<Note> noteList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private NoteAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +37,35 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //.setAction("Action", null).show();
-
                 DialogNewNote dialog = new DialogNewNote();
                 dialog.show(getSupportFragmentManager(), "");
             }
         });
 
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mAdapter = new NoteAdapter(this, noteList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
 
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        recyclerView.addItemDecoration(
+                new DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        );
+        recyclerView.setAdapter(mAdapter);
     }
 
     public void createNewNote(Note n) {
-        // Temporary code
-        mTempNote = n;
+        noteList.add(n);
+        mAdapter.notifyDataSetChanged();
     }
 
+
+    public void showNote(int noteToShow) {
+        DialogShowNote dialog = new DialogShowNote();
+        dialog.sendNoteSelected(noteList.get(noteToShow));
+        dialog.show(getSupportFragmentManager(), "");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
