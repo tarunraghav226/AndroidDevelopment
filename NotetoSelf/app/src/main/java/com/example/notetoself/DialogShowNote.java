@@ -32,7 +32,7 @@ public class DialogShowNote extends DialogFragment {
 
         TextView txtImportant = (TextView) dialogView.findViewById(R.id.textViewImportant);
 
-        TextView txtToDo = (TextView) dialogView.findViewById(R.id.textViewTodo);
+        TextView txtToDo = (TextView) dialogView.findViewById(R.id.textViewToDo);
 
         TextView txtIdea = (TextView) dialogView.findViewById(R.id.textViewIdea);
 

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.content_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -36,23 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        // Temporary code
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Create a new DialogShowNote called dialog
-                DialogShowNote dialog = new DialogShowNote();
-
-                // Send the note via the sendNoteSelected method
-                dialog.sendNoteSelected(mTempNote);
-
-                // Create the dialog
-                dialog.show(getSupportFragmentManager(), "123");
-            }
-        });
 
     }
 
