@@ -1,7 +1,6 @@
 package com.example.notetoself;
 
 public class Note {
-
     private String mTitle;
     private String mDescription;
     private boolean mIdea;
@@ -47,4 +46,5 @@ public class Note {
     public void setImportant(boolean mImportant) {
         this.mImportant = mImportant;
     }
+
 }

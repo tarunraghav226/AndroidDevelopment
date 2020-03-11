@@ -32,19 +32,19 @@ public class DialogShowNote extends DialogFragment {
 
         TextView txtImportant = (TextView) dialogView.findViewById(R.id.textViewImportant);
 
-        TextView txtToDo = (TextView) dialogView.findViewById(R.id.textViewToDo);
+        TextView txtTodo = (TextView) dialogView.findViewById(R.id.textViewTodo);
 
         TextView txtIdea = (TextView) dialogView.findViewById(R.id.textViewIdea);
 
-        if (!mNote.isImportant()) {
+        if (!mNote.isImportant()){
             txtImportant.setVisibility(View.GONE);
         }
 
-        if (!mNote.isTodo()) {
-            txtToDo.setVisibility(View.GONE);
+        if (!mNote.isTodo()){
+            txtTodo.setVisibility(View.GONE);
         }
 
-        if (!mNote.isIdea()) {
+        if (!mNote.isIdea()){
             txtIdea.setVisibility(View.GONE);
         }
 
@@ -62,6 +62,7 @@ public class DialogShowNote extends DialogFragment {
         return builder.create();
 
 
+
     }
 
 
@@ -71,3 +72,4 @@ public class DialogShowNote extends DialogFragment {
     }
 
 }
+

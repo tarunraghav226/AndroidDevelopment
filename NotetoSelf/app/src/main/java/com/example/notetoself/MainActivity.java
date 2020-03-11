@@ -1,10 +1,8 @@
 package com.example.notetoself;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -12,24 +10,25 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.util.Log;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Temporary code
-    Note mTempNote = new Note();
-
     private List<Note> noteList = new ArrayList<>();
     private RecyclerView recyclerView;
     private NoteAdapter mAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_main);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -42,30 +41,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
         mAdapter = new NoteAdapter(this, noteList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        recyclerView.addItemDecoration(
-                new DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
-        );
         recyclerView.setAdapter(mAdapter);
+
+        // Add a neat dividing line between items in the list
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+
+        // set the adapter
+        recyclerView.setAdapter(mAdapter);
+
     }
 
-    public void createNewNote(Note n) {
+    public void createNewNote(Note n){
         noteList.add(n);
         mAdapter.notifyDataSetChanged();
     }
 
-
-    public void showNote(int noteToShow) {
+    public void showNote(int noteToShow){
         DialogShowNote dialog = new DialogShowNote();
         dialog.sendNoteSelected(noteList.get(noteToShow));
         dialog.show(getSupportFragmentManager(), "");
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,4 +91,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

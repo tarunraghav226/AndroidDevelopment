@@ -1,6 +1,5 @@
 package com.example.notetoself;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 public class DialogNewNote extends DialogFragment {
@@ -29,7 +29,7 @@ public class DialogNewNote extends DialogFragment {
         final EditText editTitle = (EditText) dialogView.findViewById(R.id.editTitle);
         final EditText editDescription = (EditText) dialogView.findViewById(R.id.editDescription);
         final CheckBox checkBoxIdea = (CheckBox) dialogView.findViewById(R.id.checkBoxIdea);
-        final CheckBox checkBoxToDo = (CheckBox) dialogView.findViewById(R.id.checkBoxTodo);
+        final CheckBox checkBoxTodo = (CheckBox) dialogView.findViewById(R.id.checkBoxTodo);
         final CheckBox checkBoxImportant = (CheckBox) dialogView.findViewById(R.id.checkBoxImportant);
         Button btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
@@ -37,17 +37,7 @@ public class DialogNewNote extends DialogFragment {
         builder.setView(dialogView).setMessage("Add a new note");
 
         // Handle the cancel button
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
-
-        builder.setView(dialogView).setMessage("Add a new note");
-
-        // Handle the cancel button
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
@@ -68,7 +58,7 @@ public class DialogNewNote extends DialogFragment {
                 newNote.setTitle(editTitle.getText().toString());
                 newNote.setDescription(editDescription.getText().toString());
                 newNote.setIdea(checkBoxIdea.isChecked());
-                newNote.setTodo(checkBoxToDo.isChecked());
+                newNote.setTodo(checkBoxTodo.isChecked());
                 newNote.setImportant(checkBoxImportant.isChecked());
 
                 // Get a reference to MainActivity
