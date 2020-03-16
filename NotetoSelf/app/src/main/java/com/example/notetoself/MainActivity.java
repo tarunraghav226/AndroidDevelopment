@@ -1,6 +1,7 @@
 package com.example.notetoself;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Note> noteList = new ArrayList<>();
     private RecyclerView recyclerView;
     private NoteAdapter mAdapter;
+    private boolean showDividers;
+    private SharedPreferences preferences;
 
 
     @Override
@@ -52,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         // Add a neat dividing line between items in the list
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        if(showDividers)
+            recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        else{
+            if(recyclerView.getItemDecorationCount()>0)
+                recyclerView.removeItemDecorationAt(0);
+        }
 
         // set the adapter
         recyclerView.setAdapter(mAdapter);
@@ -95,4 +103,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        preferences=getSharedPreferences("Note To Self",MODE_PRIVATE);
+        showDividers = preferences.getBoolean("dividers",true);
+    }
 }
