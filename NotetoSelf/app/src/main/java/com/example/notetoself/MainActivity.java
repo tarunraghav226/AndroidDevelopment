@@ -3,8 +3,11 @@ package com.example.notetoself;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -12,17 +15,15 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Note> noteList = new ArrayList<>();
+    private JSONSerializer serializer;
+    private List<Note> noteList;
     private RecyclerView recyclerView;
     private NoteAdapter mAdapter;
     private boolean showDividers;
@@ -45,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        serializer=new JSONSerializer("Note to Self.json",getApplicationContext());
+        try{
+            noteList=serializer.load();
+        }
+        catch (Exception e){
+            noteList=new ArrayList<Note>();
+            Log.i("Cannot load","noteList",e);
+        }
 
         preferences=getSharedPreferences("Note To Self",MODE_PRIVATE);
         showDividers=preferences.getBoolean("dividers",true);
@@ -117,6 +127,21 @@ public class MainActivity extends AppCompatActivity {
         else{
             if(recyclerView.getItemDecorationCount()>0)
                 recyclerView.removeItemDecorationAt(0);
+        }
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        saveNotes();
+    }
+
+    public void saveNotes(){
+        try{
+            serializer.save(noteList);
+        }
+        catch (Exception e){
+            Log.i("Error while saving","notes",e);
         }
     }
 }
