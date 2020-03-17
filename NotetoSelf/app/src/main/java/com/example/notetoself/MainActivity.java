@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        preferences=getSharedPreferences("Note To Self",MODE_PRIVATE);
+        showDividers=preferences.getBoolean("dividers",true);
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
@@ -108,5 +111,12 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         preferences=getSharedPreferences("Note To Self",MODE_PRIVATE);
         showDividers = preferences.getBoolean("dividers",true);
+
+        if(showDividers)
+            recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        else{
+            if(recyclerView.getItemDecorationCount()>0)
+                recyclerView.removeItemDecorationAt(0);
+        }
     }
 }
