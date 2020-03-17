@@ -26,6 +26,18 @@ public class Note {
         mImportant=jo.getBoolean(JSON_IMPORTANT);
     }
 
+    //method to get JSON object
+    public JSONObject getJSONObject() throws JSONException{
+        JSONObject jo = new JSONObject();
+        jo.put(JSON_TITLE,mTitle);
+        jo.put(JSON_DESC,mDescription);
+        jo.put(JSON_IDEA,mIdea);
+        jo.put(JSON_TODO,mTodo);
+        jo.put(JSON_IMPORTANT,mImportant);
+
+        return jo;
+    }
+
     public Note(){}
 
     public String getTitle() {
