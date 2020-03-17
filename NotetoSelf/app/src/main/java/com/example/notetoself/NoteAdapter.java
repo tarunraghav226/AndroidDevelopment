@@ -43,7 +43,10 @@ public class NoteAdapter extends
         Note note = mNoteList.get(position);
         holder.mTitle.setText(note.getTitle());
         // Show the first 15 characters of the actual note
-        holder.mDescription.setText(note.getDescription().substring(0, 15));
+        if(note.getDescription().length()<15)
+            holder.mDescription.setText(note.getDescription());
+        else
+            holder.mDescription.setText(note.getDescription().substring(0, 15));
 
         // What is the status of the note?
         if(note.isIdea()){

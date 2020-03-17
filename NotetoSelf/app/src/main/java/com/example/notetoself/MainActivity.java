@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
 
         mAdapter = new NoteAdapter(this, noteList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
 
         // Add a neat dividing line between items in the list
         if(showDividers)
@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-
         preferences=getSharedPreferences("Note To Self",MODE_PRIVATE);
         showDividers = preferences.getBoolean("dividers",true);
     }
