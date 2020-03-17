@@ -1,11 +1,32 @@
 package com.example.notetoself;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Note {
     private String mTitle;
     private String mDescription;
     private boolean mIdea;
     private boolean mTodo;
     private boolean mImportant;
+
+    //JSON variables
+    private static String JSON_TITLE = "title";
+    private static String JSON_DESC = "description";
+    private static String JSON_IDEA = "idea";
+    private static String JSON_TODO = "todo";
+    private static String JSON_IMPORTANT = "important";
+
+    //Constructor that initialises the object variable with JSON values
+    public Note(JSONObject jo) throws JSONException{
+        mTitle=jo.getString(JSON_TITLE);
+        mDescription=jo.getString(JSON_DESC);
+        mIdea=jo.getBoolean(JSON_IDEA);
+        mTodo=jo.getBoolean(JSON_TODO);
+        mImportant=jo.getBoolean(JSON_IMPORTANT);
+    }
+
+    public Note(){}
 
     public String getTitle() {
         return mTitle;
