@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="66dp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textStatus"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -47,7 +47,7 @@
         android:text="Fade Out"
         app:layout_constraintEnd_toStartOf="@+id/btnFadeInOut"
         app:layout_constraintStart_toEndOf="@+id/btnFadeIn"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textStatus" />
 
     <Button
         android:id="@+id/btnFadeInOut"
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnZoomOut" />
 
     <Button
-        android:id="@+id/bttnBounce"
+        android:id="@+id/btnBounce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
@@ -138,7 +138,7 @@
         android:layout_marginTop="27dp"
         android:text="rotate left"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bttnBounce" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBounce" />
 
     <Button
         android:id="@+id/btnRotateRight"
@@ -151,7 +151,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFlash" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/seekBarSpeed"
         android:layout_width="191dp"
         android:layout_height="28dp"
         android:layout_marginStart="23dp"
@@ -162,7 +162,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnRotateLeft" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textSeekerSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
