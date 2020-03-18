@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loadAnimations();
+        loadUI();
     }
 
     private void loadAnimations() {
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                                         + seekBarValue
                                                                         + " of "
                                                                         + seekBarSpeed.getMax());
+                                                                seekBarValue *= 10;
                                                             }
 
                                                             @Override
