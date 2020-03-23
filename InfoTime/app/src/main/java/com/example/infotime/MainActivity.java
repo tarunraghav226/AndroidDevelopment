@@ -3,6 +3,7 @@ package com.example.infotime;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.webkit.WebView;
 
 public class MainActivity extends AppCompatActivity {
 
