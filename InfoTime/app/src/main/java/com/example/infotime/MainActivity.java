@@ -2,6 +2,7 @@ package com.example.infotime;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //code to hide title and title bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
 
         WebView webView = (WebView) findViewById(R.id.webView);
         webView.setWebViewClient(new ClientView());
