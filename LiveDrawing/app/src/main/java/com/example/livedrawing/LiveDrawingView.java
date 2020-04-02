@@ -2,6 +2,7 @@ package com.example.livedrawing;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -31,6 +32,29 @@ public class LiveDrawingView extends SurfaceView {
 
         fontSize = screenX / 20;
         fontMargin = screenX / 75;
+    }
+
+    private void draw() {
+        if (ourHolder.getSurface().isValid()) {
+            canvas = ourHolder.lockCanvas();
+            canvas.drawColor(Color.argb(255, 0, 0, 0));
+            paint.setColor(Color.argb(255, 255, 255, 255));
+            paint.setTextSize(fontSize);
+
+            if (DEBBUGING) {
+                printDebuggingText();
+            }
+
+            ourHolder.unlockCanvasAndPost(canvas);
+        }
+    }
+
+    private void printDebuggingText() {
+        int debugSize = fontSize / 2;
+        int debugStart = 150;
+
+        paint.setTextSize(fontSize);
+        canvas.drawText("FPS: " + FPS, 10, debugStart + debugSize, paint);
     }
 
 }
