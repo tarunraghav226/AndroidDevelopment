@@ -75,4 +75,10 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
             Log.e("Error:", "joining thread");
         }
     }
+
+    public void resume() {
+        drawing = true;
+        thread = new Thread(this);
+        thread.start();
+    }
 }
