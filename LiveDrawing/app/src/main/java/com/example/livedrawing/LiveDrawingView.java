@@ -4,10 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class LiveDrawingView extends SurfaceView {
+public class LiveDrawingView extends SurfaceView implements Runnable {
 
     private final boolean DEBBUGING = true;
     private final int MILLI_SECONDS = 1000;
@@ -20,6 +21,10 @@ public class LiveDrawingView extends SurfaceView {
 
     private int fontSize;
     private int fontMargin;
+
+    private Thread thread;
+    private volatile boolean drawing;
+    private boolean paused = true;
 
     public LiveDrawingView(Context context, int x, int y) {
         super(context);
@@ -57,4 +62,17 @@ public class LiveDrawingView extends SurfaceView {
         canvas.drawText("FPS: " + FPS, 10, debugStart + debugSize, paint);
     }
 
+    @Override
+    public void run() {
+
+    }
+
+    public void pause() {
+        drawing = false;
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            Log.e("Error:", "joining thread");
+        }
+    }
 }
