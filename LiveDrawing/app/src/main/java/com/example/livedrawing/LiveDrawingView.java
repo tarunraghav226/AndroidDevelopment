@@ -64,7 +64,18 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
 
     @Override
     public void run() {
-
+        while (drawing) {
+            long frameStartTime = System.currentTimeMillis();
+            if (!paused) {
+                update();
+            }
+            draw();
+            long timeThisFrame =
+                    System.currentTimeMillis() - frameStartTime;
+            if (timeThisFrame > 0) {
+                FPS = MILLI_SECONDS / timeThisFrame;
+            }
+        }
     }
 
     public void pause() {

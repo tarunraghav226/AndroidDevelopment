@@ -25,10 +25,12 @@ public class LiveDrawingActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        liveDrawingView.resume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        liveDrawingView.pause();
     }
 }
