@@ -4,10 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.RectF;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.util.ArrayList;
 
 public class LiveDrawingView extends SurfaceView implements Runnable {
 
@@ -29,6 +33,11 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
     private RectF resetButton;
     private RectF togglePauseButton;
 
+    private final int MAX_SYSTEMS = 1000;
+    private ArrayList<ParticleSystem> particleSystems = new ArrayList<>();
+    private int nextSystem = 0;
+    private int particlesPerSystem = 100;
+
     public LiveDrawingView(Context context, int x, int y) {
         super(context);
 
@@ -43,6 +52,11 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
 
         resetButton = new RectF(0, 0, 100, 100);
         togglePauseButton = new RectF(0, 150, 100, 250);
+
+        for (int i = 0; i < MAX_SYSTEMS; i++) {
+            particleSystems.add(new ParticleSystem());
+            particleSystems.get(i).init(particlesPerSystem);
+        }
     }
 
     private void draw() {
@@ -53,6 +67,10 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
             canvas.drawRect(togglePauseButton, paint);
             paint.setColor(Color.argb(255, 255, 255, 255));
             paint.setTextSize(fontSize);
+
+            for (int i = 0; i < nextSystem; i++) {
+                particleSystems.get(i).draw(canvas, paint);
+            }
 
             if (DEBBUGING) {
                 printDebuggingText();
@@ -103,5 +121,26 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
 
     private void update() {
 
+        for (int i = 0; i < particleSystems.size(); i++) {
+            if (particleSystems.get(i).isRunning) {
+                particleSystems.get(i).update(FPS);
+            }
+        }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() &
+                MotionEvent.ACTION_MASK)
+                == MotionEvent.ACTION_MOVE) {
+            particleSystems.get(nextSystem).emitParticle(
+                    new PointF(motionEvent.getX(),
+                            motionEvent.getY()));
+            nextSystem++;
+            if (nextSystem == MAX_SYSTEMS) {
+                nextSystem = 0;
+            }
+        }
+        return true;
     }
 }
