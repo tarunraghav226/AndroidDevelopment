@@ -13,4 +13,18 @@ public class Particle {
         velocity.x = direction.x;
         velocity.y = direction.y;
     }
+
+    public void update(Float fps) {
+        position.x += velocity.x;
+        position.y += velocity.y;
+    }
+
+    public PointF getPosition() {
+        return position;
+    }
+
+    public void setPosition(PointF newPosition) {
+        position.x = newPosition.x;
+        position.y = newPosition.y;
+    }
 }
