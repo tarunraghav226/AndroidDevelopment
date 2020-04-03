@@ -36,4 +36,14 @@ class ParticleSystem {
         if (duration < 0)
             isRunning = false;
     }
+
+    public void emitParticle(PointF startPosition) {
+        isRunning = true;
+
+        duration = 1f;
+
+        for (Particle p : particles) {
+            p.setPosition(startPosition);
+        }
+    }
 }
