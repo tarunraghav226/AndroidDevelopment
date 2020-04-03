@@ -86,6 +86,10 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
 
         paint.setTextSize(fontSize);
         canvas.drawText("FPS: " + FPS, 10, debugStart + debugSize, paint);
+
+        canvas.drawText("Systems: " + nextSystem, 10, fontMargin + debugStart + debugSize * 2, paint);
+
+        canvas.drawText("Particles: " + nextSystem * particlesPerSystem, 10, fontMargin + debugStart + debugSize * 3, paint);
     }
 
     @Override
