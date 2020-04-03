@@ -25,4 +25,15 @@ class ParticleSystem {
             particles.add(new Particle(direction));
         }
     }
+
+    public void update(long fps) {
+        duration -= 1f / fps;
+
+        for (Particle p : particles) {
+            p.update(fps);
+        }
+
+        if (duration < 0)
+            isRunning = false;
+    }
 }
