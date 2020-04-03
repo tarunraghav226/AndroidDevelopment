@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -25,6 +26,8 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
     private Thread thread;
     private volatile boolean drawing;
     private boolean paused = true;
+    private RectF resetButton;
+    private RectF togglePauseButton;
 
     public LiveDrawingView(Context context, int x, int y) {
         super(context);
@@ -37,12 +40,17 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
 
         fontSize = screenX / 20;
         fontMargin = screenX / 75;
+
+        resetButton = new RectF(0, 0, 100, 100);
+        togglePauseButton = new RectF(0, 150, 100, 250);
     }
 
     private void draw() {
         if (ourHolder.getSurface().isValid()) {
             canvas = ourHolder.lockCanvas();
-            canvas.drawColor(Color.argb(255, 0, 0, 0));
+            canvas.drawColor(Color.argb(255, 200, 0, 0));
+            canvas.drawRect(resetButton, paint);
+            canvas.drawRect(togglePauseButton, paint);
             paint.setColor(Color.argb(255, 255, 255, 255));
             paint.setTextSize(fontSize);
 
@@ -91,5 +99,9 @@ public class LiveDrawingView extends SurfaceView implements Runnable {
         drawing = true;
         thread = new Thread(this);
         thread.start();
+    }
+
+    private void update() {
+
     }
 }
