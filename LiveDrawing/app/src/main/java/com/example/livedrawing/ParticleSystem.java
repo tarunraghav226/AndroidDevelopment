@@ -1,5 +1,8 @@
 package com.example.livedrawing;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PointF;
 
 import java.util.ArrayList;
@@ -44,6 +47,17 @@ class ParticleSystem {
 
         for (Particle p : particles) {
             p.setPosition(startPosition);
+        }
+    }
+
+    public void draw(Canvas canvas, Paint paint) {
+        for (Particle p : particles) {
+            paint.setColor(Color.argb(255, 255, 255, 255));
+
+            float sizeX = 10;
+            float sizeY = 10;
+
+            canvas.drawCircle(p.getPosition().x, p.getPosition().y, sizeX, paint);
         }
     }
 }
