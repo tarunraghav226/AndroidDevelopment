@@ -33,7 +33,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="56dp"
         android:max="10"
-        app:layout_constraintBottom_toTopOf="@+id/btnStop"
+        app:layout_constraintBottom_toTopOf="@+id/FX3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,13 +54,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/FX2"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnStop"
+        app:layout_constraintBaseline_toBaselineOf="@+id/FX3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/FX2" />
 
     <Button
-        android:id="@+id/btnStop"
+        android:id="@+id/FX3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="177dp"
@@ -72,7 +72,7 @@
         tools:text="@string/FX3" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
