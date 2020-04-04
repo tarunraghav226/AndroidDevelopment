@@ -1,9 +1,12 @@
 package com.example.devicedetection;
 
+import android.graphics.Point;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +15,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView txtOrientation;
+    private TextView txtResolution;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        txtOrientation = (TextView) findViewById(R.id.txtOrientation);
+        txtResolution = (TextView) findViewById(R.id.txtResolution);
+    }
+
+    public void detectDevice(View v) {
+        Display display = getWindowManager().getDefaultDisplay();
+        txtOrientation.setText("" + display.getRotation());
+
+        Point xy = new Point();
+        display.getSize(xy);
+        txtResolution.setText("X=" + xy.x + " Y=" + xy.y);
     }
 
     @Override
