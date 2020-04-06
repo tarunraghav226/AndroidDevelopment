@@ -3,31 +3,35 @@ package com.example.imagepager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
+
+    ViewPager viewPager;
+    PagerAdapter adapter;
+
+    int[] images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        images = new int[]{
+                R.drawable.image1,
+                R.drawable.image2,
+                R.drawable.image3,
+                R.drawable.image4,
+                R.drawable.image5,
+                R.drawable.image6
+        };
+
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        adapter=new ImagePagerAdapter(MainActivity.this,images);
+        viewPager.setAdapter(adapter);
     }
 
     @Override
