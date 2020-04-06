@@ -25,7 +25,7 @@ public class SimpleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
 
-        myButton = (Button) view.findViewById(R.id.fragmentHolder);
+        myButton = (Button) view.findViewById(R.id.button);
 
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
