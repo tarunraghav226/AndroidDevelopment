@@ -14,9 +14,9 @@ public class InsertFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.content_insert, container, false);
         final DataManager dataManager = new DataManager(getActivity());
-        Button btnInsert = v.findViewById(R.id.btnInsert);
-        final EditText editName = v.findViewById(R.id.editName);
-        final EditText editAge = v.findViewById(R.id.editAge);
+        Button btnInsert = (Button) v.findViewById(R.id.btnInsert);
+        final EditText editName = (EditText) v.findViewById(R.id.editName);
+        final EditText editAge = (EditText) v.findViewById(R.id.editAge);
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
