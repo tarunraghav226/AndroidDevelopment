@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Random Name</string>
     <string name="action_settings">Settings</string>
+    <string name="new_student">New Student</string>
+    <string name="next_student">Next Student</string>
+    <string name="name_of_student">Name</string>
+    <string name="section">Section</string>
+    <string name="year">Year</string>
+    <string name="save">Save</string>
 </resources>
