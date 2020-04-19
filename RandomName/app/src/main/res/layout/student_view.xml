@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/viewStudentName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shadowColor="#00504D4D"
+        android:text="TextView"
+        android:textColor="#F72F45"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/viewStudentSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shadowColor="#00706C6C"
+        android:text="TextView"
+        android:textColor="#0BB88C"
+        android:textColorHighlight="#098B8F"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewStudentYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#49D5BD"
+        android:textSize="18sp" />
+</LinearLayout>
