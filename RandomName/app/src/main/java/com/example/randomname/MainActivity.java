@@ -1,5 +1,6 @@
 package com.example.randomname;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
@@ -100,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, StudentActivity.class);
+            startActivity(intent);
             return true;
         }
 
