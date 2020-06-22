@@ -28,6 +28,15 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("username", username)
             startActivity(intent)
         }
+
+        mainBtnShareOut.setOnClickListener {
+            val username: String = mainEditTxtUsername.text.toString()
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.type = "plain/text"
+            intent.putExtra(Intent.EXTRA_TEXT, username)
+            startActivity(Intent.createChooser(intent, "Select:"))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

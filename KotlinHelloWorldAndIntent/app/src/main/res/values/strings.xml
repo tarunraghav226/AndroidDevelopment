@@ -4,4 +4,5 @@
     <string name="welcome_text">Hello User!! Enter Your Name Below</string>
     <string name="main_edit_text_username">Username</string>
     <string name="main_btn_switch_activity">Switch Activity</string>
+    <string name="main_share_outside">Share to other application</string>
 </resources>
