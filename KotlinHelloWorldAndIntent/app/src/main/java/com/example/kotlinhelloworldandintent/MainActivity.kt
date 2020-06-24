@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_TEXT, username)
             startActivity(Intent.createChooser(intent, "Select:"))
         }
+
+        mainBtnRecy.setOnClickListener {
+            val intent = Intent(this, RecyclerActivity::class.java)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

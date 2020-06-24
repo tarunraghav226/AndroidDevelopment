@@ -5,4 +5,5 @@
     <string name="main_edit_text_username">Username</string>
     <string name="main_btn_switch_activity">Switch Activity</string>
     <string name="main_share_outside">Share to other application</string>
+    <string name="main_btn_rec_act">Show Recycler View</string>
 </resources>

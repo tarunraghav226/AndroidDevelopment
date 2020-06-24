@@ -53,4 +53,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainBtnSwtchAct" />
+
+    <Button
+        android:id="@+id/mainBtnRecy"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="33dp"
+        android:text="@string/main_btn_rec_act"
+        app:layout_constraintStart_toStartOf="@+id/mainBtnShareOut"
+        app:layout_constraintTop_toBottomOf="@+id/mainBtnShareOut" />
 </androidx.constraintlayout.widget.ConstraintLayout>
