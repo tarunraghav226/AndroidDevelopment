@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         mainBtnRecy.setOnClickListener {
             val intent = Intent(this, RecyclerActivity::class.java)
+            startActivity(intent)
         }
     }
 
