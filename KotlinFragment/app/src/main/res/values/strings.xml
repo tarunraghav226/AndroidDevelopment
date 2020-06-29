@@ -4,4 +4,8 @@
     <string name="simple_fragment">Simple Fragment</string>
     <string name="list_fragment">List Fragment</string>
     <string name="page_fragment">Page Fragment</string>
+    <string name="click_below_to_get_dialog_fragment">Click Below To Get Dialog Fragment</string>
+    <string name="click_here">Click Here</string>
+    <string name="you_clicked_the_button">You clicked the button.</string>
+    <string name="ok">OK</string>
 </resources>
