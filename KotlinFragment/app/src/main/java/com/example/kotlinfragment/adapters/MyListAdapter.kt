@@ -1,16 +1,16 @@
 package com.example.kotlinfragment.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinfragment.R
+import com.example.kotlinfragment.activities.ListActivity
+import com.example.kotlinfragment.fragments.ListDialogFragment
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class MyListAdapter(private val context: Context, private val list: MutableList<String>) :
+class MyListAdapter(private val context: ListActivity, private val list: MutableList<String>) :
     RecyclerView.Adapter<MyListAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
@@ -26,8 +26,8 @@ class MyListAdapter(private val context: Context, private val list: MutableList<
 
         init {
             itemView.setOnClickListener {
-                list[posi] = "changed"
-                Toast.makeText(context, "Changed", Toast.LENGTH_SHORT).show()
+                val dialog = ListDialogFragment(posi, context)
+                dialog.show(context.supportFragmentManager, "")
             }
         }
 

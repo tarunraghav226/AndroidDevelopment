@@ -9,4 +9,8 @@
     <string name="you_clicked_the_button">You clicked the button.</string>
     <string name="ok">OK</string>
     <string name="click_to_see_list">Click to see list</string>
+
+    <string name="list_txt_hint">Enter Name</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
 </resources>
