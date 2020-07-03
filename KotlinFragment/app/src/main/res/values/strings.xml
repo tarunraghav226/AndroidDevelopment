@@ -13,4 +13,6 @@
     <string name="list_txt_hint">Enter Name</string>
     <string name="update">Update</string>
     <string name="cancel">Cancel</string>
+
+    <string name="pager_activity">Pager view</string>
 </resources>
