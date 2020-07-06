@@ -1,4 +1,4 @@
-package com.example.myschool
+package com.example.myschool.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myschool.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,8 +23,14 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        val topToBottomAnimation = AnimationUtils.loadAnimation(this, R.anim.from_top)
-        val bottomToTopAnimation = AnimationUtils.loadAnimation(this, R.anim.from_bottom)
+        val topToBottomAnimation = AnimationUtils.loadAnimation(
+            this,
+            R.anim.from_top
+        )
+        val bottomToTopAnimation = AnimationUtils.loadAnimation(
+            this,
+            R.anim.from_bottom
+        )
 
         bottomToTopAnimation.duration = 2800
         topToBottomAnimation.duration = 2800
