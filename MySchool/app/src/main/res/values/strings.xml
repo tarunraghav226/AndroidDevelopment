@@ -5,4 +5,23 @@
     <string name="login">Login</string>
     <string name="user_id">User ID</string>
     <string name="password">Password</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_search">Search</string>
+
+    <string name="student_details">Student Details</string>
+    <string name="class_of">Class</string>
+    <string name="admission_number">Admission Number</string>
+    <string name="roll_no">Roll Number</string>
+    <string name="mid1">Mid-1 %</string>
+    <string name="mid2">Mid-2 %</string>
+    <string name="final_term">Final Term %</string>
+    <string name="subject_code">Subject Code</string>
+    <string name="subject_teacher">Subject Teacher</string>
+    <string name="percentages">Percentages</string>
 </resources>
