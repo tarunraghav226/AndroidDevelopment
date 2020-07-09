@@ -24,4 +24,13 @@
     <string name="subject_code">Subject Code</string>
     <string name="subject_teacher">Subject Teacher</string>
     <string name="percentages">Percentages</string>
+
+    <string name="search_whom">Search Whom</string>
+    <string name="search">Search</string>
+    <string name="id">ID</string>
+
+    <string-array name="search_whom_entries">
+        <item>Teacher</item>
+        <item>Student</item>
+    </string-array>
 </resources>
