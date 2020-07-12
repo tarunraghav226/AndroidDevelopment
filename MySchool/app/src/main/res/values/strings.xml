@@ -33,4 +33,11 @@
         <item>Teacher</item>
         <item>Student</item>
     </string-array>
+
+    <string name="student_name">Student Name</string>
+
+    <string name="teacher_id">Teacher ID</string>
+    <string name="teacher_name">Teacher Name</string>
+    <string name="class_teacher_of">Class Teacher Of</string>
+
 </resources>
