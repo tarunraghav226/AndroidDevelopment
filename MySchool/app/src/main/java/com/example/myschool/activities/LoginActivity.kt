@@ -43,14 +43,19 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT)
                             .show()
                         startActivity(intent)
+                        finish()
                     } else {
-                        Toast.makeText(this@LoginActivity, "Error Occured", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Wrong Username or Password",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     }
                 }
 
                 override fun onFailure(call: Call<UserAuthenticationToken>, t: Throwable) {
-                    Toast.makeText(this@LoginActivity, t.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Error Occurred", Toast.LENGTH_SHORT).show()
                 }
             })
 
