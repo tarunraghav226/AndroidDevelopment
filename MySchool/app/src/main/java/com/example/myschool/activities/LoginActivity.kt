@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
         logInProgressBar.visibility = View.INVISIBLE
         loginButton.setOnClickListener {
+            loginButton.isClickable = false
             logInProgressBar.visibility = View.VISIBLE;
             val studentService = ServiceBuilder.buildService(SchoolService::class.java)
             val reqCall = studentService.authorizeUser(
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
                     call: Call<UserAuthenticationToken>,
                     response: Response<UserAuthenticationToken>
                 ) {
-                    logInProgressBar.visibility = View.INVISIBLE;
+                    logInProgressBar.visibility = View.INVISIBLE
                     if (response.isSuccessful) {
                         val intent =
                             Intent(applicationContext, NavigationDrawerActivity::class.java)
@@ -45,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
+                        loginButton.isClickable = true
                         Toast.makeText(
                             this@LoginActivity,
                             "Wrong Username or Password",
@@ -55,6 +57,8 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<UserAuthenticationToken>, t: Throwable) {
+                    loginButton.isClickable = true
+                    logInProgressBar.visibility = View.INVISIBLE
                     Toast.makeText(this@LoginActivity, "Error Occurred", Toast.LENGTH_SHORT).show()
                 }
             })
