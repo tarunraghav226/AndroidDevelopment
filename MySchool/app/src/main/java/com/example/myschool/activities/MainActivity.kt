@@ -1,5 +1,6 @@
 package com.example.myschool.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -40,9 +41,22 @@ class MainActivity : AppCompatActivity() {
         splashLogoLine.startAnimation(bottomToTopAnimation)
 
         Handler().postDelayed(Runnable {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+
+            val pref = applicationContext.getSharedPreferences(
+                R.string.app_name.toString(),
+                Context.MODE_PRIVATE
+            )
+            val token = pref.getString("token", null)
+
+            if (token == null) {
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                val intent = Intent(this@MainActivity, NavigationDrawerActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }, SCREEN_TIMEOUT.toLong())
     }
 }
