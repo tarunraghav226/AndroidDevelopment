@@ -1,7 +1,32 @@
 package com.example.myschool.model
 
+import com.google.gson.annotations.SerializedName
+
 data class StudentUser(
-    val name: String, val admNo: String, val classOfStudent: String, val rollNo: String,
-    val mid1: String, val mid2: String, val final: String,
-    val list: List<Subject>
+    @SerializedName("name")
+    val name: String? = null,
+
+    @SerializedName("admission_number")
+    val admNo: String? = null,
+
+    @SerializedName("class_of_student")
+    val classOfStudent: String? = null,
+
+    @SerializedName("roll_number")
+    val rollNo: String? = null,
+
+    @SerializedName("percentage_of_mid1")
+    val mid1: String? = null,
+
+    @SerializedName("percentage_of_mid2")
+    val mid2: String? = null,
+
+    @SerializedName("percentage_of_final")
+    val final: String? = null,
+
+    @SerializedName("subjects")
+    val list: List<Subject>? = null,
+
+    @SerializedName("student_image")
+    val studImg: String? = null
 )
