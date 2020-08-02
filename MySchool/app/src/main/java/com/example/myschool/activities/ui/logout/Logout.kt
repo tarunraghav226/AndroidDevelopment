@@ -22,6 +22,7 @@ class Logout : Fragment() {
 
         val intent = Intent(activity!!, LoginActivity::class.java)
         startActivity(intent)
+        activity!!.finish()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 }
