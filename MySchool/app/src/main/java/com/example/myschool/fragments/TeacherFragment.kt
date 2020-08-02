@@ -11,6 +11,7 @@ import com.example.myschool.R
 import com.example.myschool.model.TeacherSearchResult
 import com.example.myschool.services.AuthenticatedService
 import com.example.myschool.services.ServiceBuilder
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.teacher_dialog_fragment.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,6 +44,9 @@ class TeacherFragment(val teacherID: String) : DialogFragment() {
                     view.teacherID.text = result.id
                     view.teacherName.text = result.name
                     view.classTeacherOf.text = result.classTeacherOf
+                    view.imageView3.layoutParams.height = 100
+                    view.imageView3.layoutParams.width = 100
+                    Picasso.with(context).load(result.teacherImg).into(view.imageView3)
                 } else {
                     Toast.makeText(context, "Wrong Credentials", Toast.LENGTH_SHORT).show()
                 }
