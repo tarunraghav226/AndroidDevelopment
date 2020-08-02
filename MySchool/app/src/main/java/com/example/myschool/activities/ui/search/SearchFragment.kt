@@ -34,12 +34,11 @@ class SearchFragment : Fragment(), AdapterView.OnItemSelectedListener {
         view.searchButton.setOnClickListener {
             when (search_whom) {
                 "Student" -> {
-                    Log.i("info", "id search" + view.searchInputID.text.toString())
                     val studentDialogFragment = StudentFragment(view.searchInputID.text.toString())
                     studentDialogFragment.show(activity!!.supportFragmentManager, "")
                 }
                 "Teacher" -> {
-                    val teacherDialogFragment = TeacherFragment()
+                    val teacherDialogFragment = TeacherFragment(view.searchInputID.text.toString())
                     teacherDialogFragment.show(activity!!.supportFragmentManager, "")
                 }
                 else -> {
