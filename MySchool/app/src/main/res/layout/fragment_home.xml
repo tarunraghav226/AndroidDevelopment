@@ -109,8 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/homeUserMid1Txt"
-            app:layout_constraintStart_toStartOf="@+id/homeUserMid1Txt"
+            app:layout_constraintEnd_toEndOf="@+id/homeUserAdmNumTxt"
             app:layout_constraintTop_toBottomOf="@+id/homeUserClassTxt" />
 
         <TextView
@@ -155,8 +154,31 @@
             android:background="#00FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeFinalTxt" />
+            app:layout_constraintTop_toBottomOf="@+id/homeFinalTxt"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ProgressBar
+            android:id="@+id/recyclerProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/homerecyclerView"
+            app:layout_constraintEnd_toEndOf="@+id/homerecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/homerecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/homerecyclerView" />
+
+        <ProgressBar
+            android:id="@+id/homeProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.222" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
